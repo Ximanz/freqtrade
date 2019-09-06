@@ -60,7 +60,7 @@ CONF_SCHEMA = {
         'stake_currency': {'type': 'string', 'enum': ['BTC', 'XBT', 'ETH', 'USDT', 'EUR', 'USD']},
         'stake_amount': {
             "type": ["number", "string"],
-            "minimum": 0.0005,
+            "minimum": 0.00005,
             "pattern": UNLIMITED_STAKE_AMOUNT
         },
         'fiat_display_currency': {'type': 'string', 'enum': SUPPORTED_FIAT},

@@ -9,7 +9,7 @@ services:
   - docker
 env:
   global:
-    - IMAGE_NAME=freqtradeorg/freqtrade
+    - IMAGE_NAME=ximanz/freqtrade
 install:
 - cd build_helpers && ./install_ta-lib.sh ${HOME}/dependencies/; cd ..
 - export LD_LIBRARY_PATH=${HOME}/dependencies/lib:$LD_LIBRARY_PATH
@@ -49,8 +49,6 @@ jobs:
       script:
         - build_helpers/publish_docker.sh
       name: "Build and test and push docker image"
-after_script:
-  - bash ./telegram_notification.sh
 notifications:
   email:
     recipients:

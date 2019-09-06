@@ -20,6 +20,11 @@ COPY requirements.txt requirements-common.txt /freqtrade/
 RUN pip install numpy --no-cache-dir \
   && pip install -r requirements.txt --no-cache-dir
 
+RUN apt-get update \
+    && apt-get -y install git \
+    && apt-get clean \
+    && pip install git+https://github.com/freqtrade/technical
+
 # Install and execute
 COPY . /freqtrade/
 RUN pip install -e . --no-cache-dir
